@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# headrush-browser
+Visual Browser for Headrush Pedalboard™ Rigs and Blocks
 
-## Getting Started
+This is an open-source project that is not affiliated with Headrushfx.com.  Headrushfx.com is not responsible for the functionality of this software and they may change their firmware in future releases that could break this browser at their sole disgression.  
 
-First, run the development server:
+Community PRs are welcome.  Please fork the project and submit a PR. 
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+You are free to use this software, however please attribute appropriately.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## why
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Headrush Pedalboard does not have a librarian/editor and it can be difficult to view all of your patch settings on the device itself without a lot of paging and scrolling.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This provides an easy way to visualize all your rigs and block settings in a convenient browser.   It is READ-ONLY.  No editing or librarian features are provided as that would require knowledge of the Headrush Pedalboard USB-sync protocol, and that should be something provided by the manufacturer if they choose.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## how
 
-## Learn More
+- install nvm
+- install node
+- install yarn
+- clone this project
+- copy your rigs and blocks folder to project root
+- run yarn start
+- view in your browser at http://localhost.com:3000
 
-To learn more about Next.js, take a look at the following resources:
+## compatibility
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This software is compatible with Headrush Pedalboard™ Firmware version 2.3.0.   No guarantees it will work with other versions as Headrush may change the format of it's data schema at their disgression.  No guarantees it will work with older versions of the firmware.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+It may also work with Headrush Gigboard™ Firmware version 2.3.0 but I have not tested that as I do not own that device.
