@@ -21,7 +21,7 @@ This provides an easy way to visualize all your rigs and block settings in a con
 - clone this project
 - copy your rigs and blocks folder to project root
 - run yarn start
-- view in your browser at http://localhost.com:3000
+- view in your browser at http://localhost:3000
 
 ## compatibility
 
