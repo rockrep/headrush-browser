@@ -1,4 +1,6 @@
 .container {
+  display: flex;
+  flex-direction: column;
 }
 .content {
   display: flex;
@@ -9,4 +11,11 @@
 }
 .h1 {
   text-align: center;
+}
+.img {
+  margin: 0 auto;
+}
+.error {
+  text-align: center;
+  margin: 40px 0;
 }

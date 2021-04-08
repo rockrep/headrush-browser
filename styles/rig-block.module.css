@@ -1,0 +1,26 @@
+.rigBlock {
+  margin: 8px;
+  width: 280px;
+  border: 1px solid gray;
+  /* border-radius: 8px; */
+  box-sizing: content-box;
+}
+.ul {
+  padding: 8px 0;
+  margin-block-end: unset;
+  border-top: 1px solid gray;
+}
+.h2 {
+  text-align: center;
+  background-color: #fff;
+}
+.li {
+  list-style: none;
+  margin: 4px 0;
+  text-align: center;
+  padding: 1px;
+}
+
+.settings {
+  /* border-radius: 8px; */
+}

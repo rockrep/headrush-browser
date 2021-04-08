@@ -2,11 +2,14 @@
   list-style: none;
 }
 .container {
-  height: 40vh;
+  height: 38vh;
   overflow-x: scroll;
   margin: 10px;
   padding: 10px;
 }
 .h2 {
   text-align: center;
+}
+.button {
+  text-align: left;
 }

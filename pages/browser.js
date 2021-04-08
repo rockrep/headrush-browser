@@ -3,33 +3,48 @@ const fs = require('fs')
 import Blocks from '../components/Blocks'
 import Rigs from '../components/Rigs'
 import Viewer from '../components/Viewer'
+import Footer from '../components/Footer'
 import styles from '../styles/browser.module.css'
 
 const debug = require('debug')('hb:pages:browser')
 
 function Browser(props) {
-  const { blocks, rigs } = props
-
+  const { blocks, rigs, headrushRoot } = props
   const [view, setView] = useState()
+
+  const foundData = Object.keys(blocks).length > 0 && Object.keys(rigs).length > 0
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.h1}>Headrush Pedalboard Browser</h1>
-      <div className={styles.content}>
-        <div className={styles.nav}>
-          <Blocks blocks={blocks} onSelect={setView} />
-          <Rigs rigs={rigs} onSelect={setView} />
+      <h1 className={styles.h1}>Headrush Browser</h1>
+      <img className={styles.img} src="./HeadRush_black-logo.png" width="200" />
+      {foundData && (
+        <div className={styles.content}>
+          <div className={styles.nav}>
+            <Blocks blocks={blocks} onSelect={setView} />
+            <Rigs rigs={rigs} onSelect={setView} />
+          </div>
+          <div className={styles.viewer}>
+            <Viewer view={view} />
+          </div>
         </div>
-        <div className={styles.viewer}>
-          <Viewer view={view} />
+      )}
+      {!foundData && (
+        <div className={styles.error}>
+          <p>{`No Data found at ${headrushRoot}. Please change Headrush root folder`}</p>
+          <a href="/">Back</a>
         </div>
-      </div>
+      )}
+      <Footer />
     </div>
   )
 }
 
-export async function getServerSideProps({ query }) {
-  const { hr } = query
+export async function getServerSideProps({ req }) {
+  // debug({ hr })
+  // const { hr } = query | {}
+  // req headers cookies, deserialize
+  const hr = '/Users/michael/source/headrush-browser/static'
   const blocks = {}
   const rigs = {}
   if (hr) {
@@ -54,6 +69,7 @@ export async function getServerSideProps({ query }) {
     props: {
       blocks,
       rigs,
+      headrushRoot: hr || '',
     },
   }
 }

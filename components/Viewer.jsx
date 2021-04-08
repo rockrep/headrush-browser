@@ -6,7 +6,7 @@ export default function Viewer({view}) {
   const {type, key, json} = view || {}
   return (
     <div className={styles.container}>
-      <h1 className={styles.h1}>Viewer</h1>
+      {!key && <h1 className={styles.h1}>Select a block or rig</h1>}
       {type === 'rig' && <Rig name={key} json={json} />}
       {type === 'block' && <Block name={key} json={json} />}
     </div>

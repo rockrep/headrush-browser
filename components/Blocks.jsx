@@ -1,16 +1,7 @@
-import {Button} from '@material-ui/core'
-import styles from '../styles/nav.module.css'
+import NavList from './NavList'
 
-const debug = require('debug')('hb:components:blocks')
+const Blocks = ({blocks, onSelect}) => (
+  <NavList list={blocks} type="block" header="Blocks" onSelect={onSelect} />
+)
 
-export default function Blocks({blocks, onSelect}) {
-  const type = "block"
-  return (
-    <div className={styles.container}>
-      <h2 className={styles.h2}>Blocks</h2>
-      <ul>
-        {Object.keys(blocks).map(block => <li className={styles.li} key={block}><Button variant="text" onClick={() => onSelect({type, key: block, json: blocks[block]})}>{block}</Button></li>)}
-      </ul>
-    </div>
-  )
-}
+export default Blocks

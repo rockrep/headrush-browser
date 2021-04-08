@@ -4,8 +4,11 @@ import { Formik, Form, Field } from 'formik'
 import { TextField } from 'formik-material-ui'
 import { Button, LinearProgress } from '@material-ui/core'
 import styles from '../styles/Home.module.css'
+import Footer from '../components/Footer'
 
-export default function Home({ headrushRoot }) {
+const debug = require('debug')('hr:pages:index')
+
+export default function Home({ headrushRoot, setHeadrushRoot }) {
   const router = useRouter()
   return (
     <div className={styles.container}>
@@ -15,12 +18,14 @@ export default function Home({ headrushRoot }) {
       </Head>
 
       <main className={styles.main}>
+        <img src="./HeadRush_black-logo.png" width="800" />
         <h1 className={styles.title}>Headrush Browser</h1>
-        <h2 className={styles.subtitle}>for Firmware 2.3.0</h2>
+        <h2 className={styles.subtitle}>for Pedalboard Firmware 2.3.0</h2>
 
         <p className={styles.description}>
           Enter the root file path to the folder that contains your Headrush Pedalboard Rigs and Blocks folders
         </p>
+        <img src="./blocks-rigs-folders.png" />
         <div>
           <Formik
             initialValues={{ headrushRoot }}
@@ -34,8 +39,11 @@ export default function Home({ headrushRoot }) {
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
                 setSubmitting(false)
-                const href = '/browser'
-                router.push(href, null, { query: { hr: values.headrushRoot } })
+                setHeadrushRoot(values.headrushRoot)
+                router.push('/browser', null, { query: { hr: values.headrushRoot } })
+                // router.push('/browser')
+                // window.location.href = '/browser'
+                // document.cookie serialize correctly
               }, 500)
             }}
           >
@@ -53,21 +61,13 @@ export default function Home({ headrushRoot }) {
           </Formik>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <Footer />
     </div>
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
+  debug(ctx)
   return {
     props: {
       headrushRoot: `${process.cwd()}/static`,
