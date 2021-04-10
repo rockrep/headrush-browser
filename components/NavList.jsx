@@ -11,10 +11,10 @@ export default function NavList({list, type, header, onSelect}) {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.h2}>{header}</h2>
-      <ul>
+      <h2 className={[styles.h2, styles[type]].join(' ')}>{header}</h2>
+      <ul className={styles.list}>
         {items}
       </ul>
-      </div>
+    </div>
   )
 }

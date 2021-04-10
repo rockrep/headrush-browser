@@ -1,6 +1,6 @@
 const debug = require('debug')('hb:components:rig-block')
 import styles from '../styles/rig-block.module.css'
-import {blockColor, childParser, suffix} from '../lib/utils'
+import { blockColor, childParser, suffix } from '../lib'
 
 const RigBlock = ({block, routing, json}) => {
   debug({block})

@@ -1,6 +1,6 @@
 const debug = require('debug')('hb:components:preset')
 import styles from '../styles/preset.module.css'
-import {childParser} from '../lib/utils'
+import {childParser} from '../lib'
 
 export default function Preset({name, preset}) {
   const {content} = preset

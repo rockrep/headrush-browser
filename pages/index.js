@@ -1,29 +1,29 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import { Formik, Form, Field } from 'formik'
 import { TextField } from 'formik-material-ui'
 import { Button, LinearProgress } from '@material-ui/core'
+import { useCookies } from 'react-cookie'
 import styles from '../styles/Home.module.css'
 import Footer from '../components/Footer'
 
 const debug = require('debug')('hr:pages:index')
 
-export default function Home({ headrushRoot, setHeadrushRoot }) {
-  const router = useRouter()
+export default function Home({ headrushRoot }) {
+  const [cookie, setCookie] = useCookies(['headrushRoot'])
   return (
     <div className={styles.container}>
       <Head>
-        <title>Headrush Browser</title>
+        <title>HeadRush Browser</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <img src="./HeadRush_black-logo.png" width="800" />
-        <h1 className={styles.title}>Headrush Browser</h1>
+        <h1 className={styles.title}>HeadRush Browser</h1>
         <h2 className={styles.subtitle}>for Pedalboard Firmware 2.3.0</h2>
 
         <p className={styles.description}>
-          Enter the root file path to the folder that contains your Headrush Pedalboard Rigs and Blocks folders
+          Enter the root file path to the folder that contains your HeadRush Pedalboard Rigs and Blocks folders
         </p>
         <img src="./blocks-rigs-folders.png" />
         <div>
@@ -39,17 +39,18 @@ export default function Home({ headrushRoot, setHeadrushRoot }) {
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
                 setSubmitting(false)
-                setHeadrushRoot(values.headrushRoot)
-                router.push('/browser', null, { query: { hr: values.headrushRoot } })
-                // router.push('/browser')
-                // window.location.href = '/browser'
-                // document.cookie serialize correctly
+                setCookie('headrushRoot', JSON.stringify(values.headrushRoot), {
+                  path: '/',
+                  maxAge: 3600 * 24,
+                  sameSite: true,
+                })
+                window.location.href = '/browser'
               }, 500)
             }}
           >
             {({ submitForm, isSubmitting }) => (
               <Form>
-                <Field className={styles.headrushRoot} component={TextField} name="headrushRoot" label="Headrush Root directory" />
+                <Field className={styles.headrushRoot} component={TextField} name="headrushRoot" label="HeadRush Root directory" />
                 <br />
                 {isSubmitting && <LinearProgress />}
                 <br />
@@ -70,7 +71,7 @@ export async function getServerSideProps(ctx) {
   debug(ctx)
   return {
     props: {
-      headrushRoot: `${process.cwd()}/static`,
+      headrushRoot: '/Headrush',
     },
   }
 }

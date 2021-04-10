@@ -1,5 +1,5 @@
 import Preset from './Preset'
-import styles from '../styles/rig.module.css'
+import styles from '../styles/block.module.css'
 
 const Block = ({name, json = {}}) => (
   <div>

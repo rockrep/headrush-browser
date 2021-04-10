@@ -2,14 +2,20 @@
   list-style: none;
 }
 .container {
-  height: 38vh;
+}
+.list {
+  height: 35vh;
   overflow-x: scroll;
-  margin: 10px;
-  padding: 10px;
 }
 .h2 {
   text-align: center;
 }
 .button {
   text-align: left;
+}
+.block {
+  color: darkorange;
+}
+.rig {
+  color: darkturquoise;
 }

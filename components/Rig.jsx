@@ -9,7 +9,7 @@ const Rig = ({name, json})=> {
   debug({content})
 
   const contentJson = JSON.parse(content);
-  const { data, FootSwitch } = contentJson
+  const { data } = contentJson
 
   const {
     Patch: { childorder: blockOrder, children: blockChildren },

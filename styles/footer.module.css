@@ -19,12 +19,7 @@
   align-items: center;
   font-style: italic;
   font-size: smaller;
-  margin: 8px 0;
-}
-
-.footer .disclaimer a {
-  text-decoration: underline;
-  color: blue;
+  margin: 8px 0 12px;
 }
 
 .footer a {
@@ -35,4 +30,9 @@
 
 .logo {
   height: 1em;
+}
+
+.source {
+  display: flex;
+  justify-content: space-between;
 }
