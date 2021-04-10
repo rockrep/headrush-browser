@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  display: flex;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+.h1 {
+  text-align: center;
+}
+.h1 a {
+  text-decoration: none;
+}
+.img {
+  margin: 0 auto;
+}
+.error {
+  text-align: center;
+  margin: 40px 0;
+}

@@ -1,0 +1,9 @@
+.h1 {
+  margin-left: 10px;
+  color: darkturquoise;
+}
+.rigBlocks {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}

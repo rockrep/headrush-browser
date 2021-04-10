@@ -1,0 +1,21 @@
+.li {
+  list-style: none;
+}
+.container {
+}
+.list {
+  height: 35vh;
+  overflow-x: scroll;
+}
+.h2 {
+  text-align: center;
+}
+.button {
+  text-align: left;
+}
+.block {
+  color: darkorange;
+}
+.rig {
+  color: darkturquoise;
+}

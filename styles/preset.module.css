@@ -1,0 +1,18 @@
+.li {
+  list-style: none;
+  margin: 4px 0;
+}
+.preset {
+  display: inline-block;
+  border: 1px solid gray;
+  text-align: center;
+  width: 250px;
+  margin: 8px;
+  background-color: #f0f0f0;
+}
+.ul {
+  padding-inline-start: 0;
+}
+.name {
+  color: lightseagreen;
+}
