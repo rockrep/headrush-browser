@@ -22,7 +22,6 @@ You are free to use this software, however please attribute appropriately
 
 ## how
 
-- install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - install [nvm](https://github.com/nvm-sh/nvm)
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
@@ -35,9 +34,16 @@ nvm install 15.14.0
 ```bash
 npm install --global yarn
 ```
-- clone this project
+- download source code
+```
+Either using git:
+```
+- install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ```bash
 git clone git@github.com:rockrep/headrush-browser.git
+```
+```
+or click on the Code button above and `Download ZIP`
 ```
 - `cd headrush-browser`
 - run `yarn debug`
