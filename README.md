@@ -32,6 +32,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 nvm install 15.14.0
 ```
 - install [yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
+```bash
+npm install --global yarn
+```
 - clone this project
 ```bash
 git clone git@github.com:rockrep/headrush-browser.git
@@ -45,3 +48,10 @@ git clone git@github.com:rockrep/headrush-browser.git
 This software is compatible with HeadRush® Pedalboard Firmware version 2.3.0. No guarantees it will work with other versions as the manufacturer may change the format of it's data schema at their disgression. No guarantees it will work with older versions of the firmware.
 
 It may also work with HeadRush Gigboard Firmware version 2.3.0 but I have not tested that as I do not own that device.
+
+## roadmap
+
+To make life easier for non-tech savvy folks, would like to convert this to a stand-alone executable for MacOS, Windows, Linux
+using `pkg` or `nexe`, but I haven't figured out how to get that to work yet.
+
+Also would like to display a better way to layout non-serial routing for Rigs.
