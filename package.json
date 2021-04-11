@@ -3,17 +3,15 @@
   "version": "0.1.0",
   "description": "Read-only viewer of HeadRush Pedalboard Rigs and Blocks",
   "homepage": "https://github.com/rockrep/headrush-browser#readme",
-  "bugs": 
-    {
-      "url" : "https://github.com/rockrep/headrush-browser/issues",
-      "email" : "michael_kintzer@gmail.com"
-    },
-  "author": 
-    {
-      "name" : "Michael Kintzer",
-      "email" : "michael_kintzer@gmail.com",
-      "url" : "https://github.com/rockrep"
-    },
+  "bugs": {
+    "url": "https://github.com/rockrep/headrush-browser/issues",
+    "email": "michael_kintzer@gmail.com"
+  },
+  "author": {
+    "name": "Michael Kintzer",
+    "email": "michael_kintzer@gmail.com",
+    "url": "https://github.com/rockrep"
+  },
   "contributors": [],
   "private": true,
   "license": "todo",

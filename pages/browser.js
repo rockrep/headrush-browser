@@ -1,6 +1,7 @@
+const fs = require('fs')
+const { promisify } = require('util')
 import React, { useState } from 'react'
 import Link from 'next/link'
-const fs = require('fs')
 import { parseCookies } from '../helpers/'
 import Blocks from '../components/Blocks'
 import Rigs from '../components/Rigs'
@@ -50,37 +51,41 @@ export async function getServerSideProps({ req }) {
   const data = parseCookies(req)
   const hr = data?.headrushRoot ? JSON.parse(data.headrushRoot) : ''
 
-  const blocks = {}
-  const rigs = {}
-  try {
-    if (hr) {
-      fs.readdirSync(`${hr}/Blocks`).forEach(block => {
-        blocks[block] = {}
-        fs.readdirSync(`${hr}/Blocks/${block}`).forEach(preset => {
-          const stream = fs.readFileSync(`${hr}/Blocks/${block}/${preset}`)
-          const json = JSON.parse(stream) || {}
+  const props = { blocks: {}, rigs: {}, headrushRoot: hr || '' }
 
-          blocks[block][preset] = json
-        })
-      })
-      fs.readdirSync(`${hr}/Rigs`).forEach(rig => {
-        rigs[rig] = {}
-        const stream = fs.readFileSync(`${hr}/Rigs/${rig}`)
+  if (!hr) {
+    return { props }
+  }
+
+  debug({ hr })
+  const rd = promisify(fs.readdir)
+  const rf = promisify(fs.readFile)
+
+  const blocks = await rd(`${hr}/Blocks`)
+  const rigs = await rd(`${hr}/Rigs`)
+
+  try {
+    for (const block of blocks) {
+      props.blocks[block] = {}
+      const presets = await rd(`${hr}/Blocks/${block}`)
+      for (const preset of presets) {
+        const stream = await rf(`${hr}/Blocks/${block}/${preset}`)
         const json = JSON.parse(stream) || {}
-        rigs[rig] = json
-      })
+
+        props.blocks[block][preset] = json
+      }
+    }
+    for (const rig of rigs) {
+      props.rigs[rig] = {}
+      const stream = await rf(`${hr}/Rigs/${rig}`)
+      const json = JSON.parse(stream) || {}
+      props.rigs[rig] = json
     }
   } catch (err) {
     // no-op
   }
-
-  return {
-    props: {
-      blocks,
-      rigs,
-      headrushRoot: hr || '',
-    },
-  }
+  debug({ props })
+  return { props }
 }
 
 export default Browser
