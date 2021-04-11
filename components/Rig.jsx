@@ -10,12 +10,13 @@ const Rig = ({name, json})=> {
 
   const contentJson = JSON.parse(content);
   const { data } = contentJson
+  debug({data})
 
   const {
     Patch: { childorder: blockOrder, children: blockChildren },
   } = data;
 
-  // TODO- handle layout changes for non-serial signal routing
+  // TODO- handle layout changes for non-serial signal routing (e.g. 'PS-1') where does Mix get inserted in the chain?
   const routing = blockChildren?.Chain?.children?.Routing?.string ?? 'S'
   debug({routing})
 
