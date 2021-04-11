@@ -61,30 +61,33 @@ export async function getServerSideProps({ req }) {
   const rd = promisify(fs.readdir)
   const rf = promisify(fs.readFile)
 
-  const blocks = await rd(`${hr}/Blocks`)
+  const blockEntries = await rd(`${hr}/Blocks`, {withFileTypes: true})
   const rigs = await rd(`${hr}/Rigs`)
 
   try {
-    for (const block of blocks) {
+    for (const entry of blockEntries.filter(b => b.isDirectory())) {
+      const { name: block } = entry
       props.blocks[block] = {}
-      const presets = await rd(`${hr}/Blocks/${block}`)
-      for (const preset of presets) {
+      const presets = await rd(`${hr}/Blocks/${block}`, {withFileTypes: true})
+      for (const pEntry of presets.filter(p => p.isDirectory)) {
+        const {name: preset} = pEntry
         const stream = await rf(`${hr}/Blocks/${block}/${preset}`)
         const json = JSON.parse(stream) || {}
 
         props.blocks[block][preset] = json
       }
     }
-    for (const rig of rigs) {
+    for (const rig of rigs.filter(r => r !== '.DS_Store')) {
       props.rigs[rig] = {}
       const stream = await rf(`${hr}/Rigs/${rig}`)
       const json = JSON.parse(stream) || {}
       props.rigs[rig] = json
     }
   } catch (err) {
+    debug(err.message)
     // no-op
   }
-  debug({ props })
+  // debug({ props })
   return { props }
 }
 
