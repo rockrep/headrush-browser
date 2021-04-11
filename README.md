@@ -35,16 +35,12 @@ nvm install 15.14.0
 npm install --global yarn
 ```
 - download source code
-```
-Either using git:
-```
-- install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-```bash
-git clone git@github.com:rockrep/headrush-browser.git
-```
-```
-or click on the Code button above and `Download ZIP`
-```
+  Either using Git
+  - install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  ```bash
+    git clone git@github.com:rockrep/headrush-browser.git
+  ```
+  or click on the Code button above and `Download ZIP`
 - `cd headrush-browser`
 - run `yarn debug`
 - view in your browser at `http://localhost:3000`
