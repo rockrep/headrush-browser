@@ -23,7 +23,10 @@ You are free to use this software, however please attribute appropriately
 ## how
 
 - install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- install [nvm](https://github.com/nvm-sh/nvm)]
+- install [nvm](https://github.com/nvm-sh/nvm)
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
 - install node 
 ```bash
 nvm install 15.14.0
@@ -33,6 +36,7 @@ nvm install 15.14.0
 ```bash
 git clone git@github.com:rockrep/headrush-browser.git
 ```
+- `cd headrush-browser`
 - run `yarn debug`
 - view in your browser at `http://localhost:3000`
 
