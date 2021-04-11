@@ -4,7 +4,7 @@ Visual Browser for HeadRush® Pedalboard Rigs and Blocks
 
 This is an open-source project that is not affiliated with inMusic Brands, Inc. or Avid Technology, Inc.
 
-# disclaimer
+## disclaimer
 
 Eleven® is a registered trademark of Avid Technology, Inc. HeadRush® is a registered trademark of inMusic Brands, Inc.
 Avid Technology, Inc. and inMusic Brands, Inc. are not responsible for the functionality of this project in any way.
@@ -15,7 +15,7 @@ HeadRush Pedalboard does not have a librarian/editor and it can be difficult to 
 
 This provides an easy way to visualize all your rigs and block settings in a convenient browser. It is READ-ONLY. No editing or librarian features are provided as that would require knowledge of the HeadRush Pedalboard USB-sync protocol, and that should be something provided by the manufacturer if they choose.
 
-# contributing
+## contributing
 
 Community PRs are welcome. Please fork the project and submit a PR.
 You are free to use this software, however please attribute appropriately
@@ -26,7 +26,6 @@ You are free to use this software, however please attribute appropriately
 - install node
 - install yarn
 - clone this project
-- copy your rigs and blocks folder to project root
 - run yarn debug
 - view in your browser at http://localhost:3000
 

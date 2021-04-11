@@ -1,13 +1,28 @@
 {
   "name": "headrush-browser",
   "version": "0.1.0",
+  "description": "Read-only viewer of HeadRush Pedalboard Rigs and Blocks",
+  "homepage": "https://github.com/rockrep/headrush-browser#readme",
+  "bugs": 
+    {
+      "url" : "https://github.com/rockrep/headrush-browser/issues",
+      "email" : "michael_kintzer@gmail.com"
+    },
+  "author": 
+    {
+      "name" : "Michael Kintzer",
+      "email" : "michael_kintzer@gmail.com",
+      "url" : "https://github.com/rockrep"
+    },
+  "contributors": [],
   "private": true,
+  "license": "todo",
   "scripts": {
     "dev": "next dev",
     "debug": "DEBUG=${DEBUG:-hb:*} next dev",
     "build": "next build",
     "start": "next start",
-    "prettier": "prettier -l pages/**/*.js lib/**/*.js components/**/*.js"
+    "prettier": "prettier -l pages/**/*.js helpers/**/*.js lib/**/*.js components/**/*.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
