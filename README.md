@@ -22,12 +22,19 @@ You are free to use this software, however please attribute appropriately
 
 ## how
 
-- install nvm
-- install node
-- install yarn
+- install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- install [nvm](https://github.com/nvm-sh/nvm)]
+- install node 
+```bash
+nvm install 15.14.0
+```
+- install [yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
 - clone this project
-- run yarn debug
-- view in your browser at http://localhost:3000
+```bash
+git clone git@github.com:rockrep/headrush-browser.git
+```
+- run `yarn debug`
+- view in your browser at `http://localhost:3000`
 
 ## compatibility
 
