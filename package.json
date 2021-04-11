@@ -14,7 +14,7 @@
   },
   "contributors": [],
   "private": true,
-  "license": "todo",
+  "license": "0BSD",
   "scripts": {
     "dev": "next dev",
     "debug": "DEBUG=${DEBUG:-hb:*} next dev",
