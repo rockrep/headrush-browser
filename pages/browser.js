@@ -69,7 +69,7 @@ export async function getServerSideProps({ req }) {
       const { name: block } = entry
       props.blocks[block] = {}
       const presets = await rd(`${hr}/Blocks/${block}`, {withFileTypes: true})
-      for (const pEntry of presets.filter(p => p.isDirectory)) {
+      for (const pEntry of presets.filter(p => p.isDirectory && p.name !== '.DS_Store')) {
         const {name: preset} = pEntry
         const stream = await rf(`${hr}/Blocks/${block}/${preset}`)
         const json = JSON.parse(stream) || {}
